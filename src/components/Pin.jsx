@@ -6,7 +6,6 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 
 import { client, urlFor } from '../client';
-import { fetchUser } from '../utils/fetchUser';
 
 const Pin = ({ pin }) => {
   const [postHovered, setPostHovered] = useState(false);
@@ -16,7 +15,8 @@ const Pin = ({ pin }) => {
 
   const { postedBy, image, _id, destination } = pin;
 
-  const user = fetchUser();
+  const user = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
+
   const deletePin = (id) => {
     client
       .delete(id)
