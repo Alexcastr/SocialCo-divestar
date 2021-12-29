@@ -29,7 +29,7 @@ const Home = () => {
       }, []);
 
     useEffect(() => {
-    scrollRef.current.scrollTo(0, 0);
+      scrollRef.current.scrollTo(0, 0);
     });
 
 
